@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "client_id")
     private UUID id;
 
     @Column(name = "street")
@@ -28,8 +28,9 @@ public class Address {
     @Column(name = "state")
     private String uf;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "client_id")
+    @MapsId
     private Client client;
 
 }
